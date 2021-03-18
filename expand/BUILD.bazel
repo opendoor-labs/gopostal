@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "expand",
+    srcs = ["expand.go"],
+    cgo = True,
+    importpath = "github.com/openvenues/gopostal/expand",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "expand_test",
+    srcs = ["expand_test.go"],
+    embed = [":expand"],
+)
