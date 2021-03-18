@@ -1,24 +1,24 @@
 package postal
 
 /*
-#cgo pkg-config: libpostal
-#include <libpostal/libpostal.h>
+#include "build/darwin/libpostal.h"
 #include <stdlib.h>
-
 */
 import "C"
 
 import (
-    "unsafe"
-    "log"
-    "sync"
-    "unicode/utf8"
+	"log"
+	"sync"
+	"unicode/utf8"
+	"unsafe"
 )
 
 var mu sync.Mutex
 
 func init() {
-    if (!bool(C.libpostal_setup()) || !bool(C.libpostal_setup_language_classifier())) {
+    dataDir := C.CString("/usr/local/share/libpostal")
+
+    if !bool(C.libpostal_setup_datadir(dataDir)) || !bool(C.libpostal_setup_language_classifier_datadir(dataDir)) {
         log.Fatal("Could not load libpostal")
     }
 }

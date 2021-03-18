@@ -2,8 +2,29 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "expand",
-    srcs = ["expand.go"],
+    srcs = [
+        "build_darwin.go",
+        "expand.go",
+    ],
+    cdeps = select({
+        "@io_bazel_rules_go//go/platform:darwin": [
+            "//build/darwin:libpostal",
+        ],
+        "@io_bazel_rules_go//go/platform:ios": [
+            "//build/darwin:libpostal",
+        ],
+        "//conditions:default": [],
+    }),
     cgo = True,
+    clinkopts = select({
+        "@io_bazel_rules_go//go/platform:darwin": [
+            "build/darwin/libpostal.a",
+        ],
+        "@io_bazel_rules_go//go/platform:ios": [
+            "build/darwin/libpostal.a",
+        ],
+        "//conditions:default": [],
+    }),
     importpath = "github.com/openvenues/gopostal/expand",
     visibility = ["//visibility:public"],
 )
