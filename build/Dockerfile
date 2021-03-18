@@ -1,9 +1,4 @@
-FROM debian:latest
-
-ENV LIBPOSTAL_VERSION   v1.1-alpha
-ENV LIBPOSTAL_DIR       /opt/libpostal
-ENV LIBPOSTAL_DATA_DIR  /opt/libpostal_data
-
+FROM debian:buster
 
 RUN apt-get update && apt-get install -y \
   autoconf \
@@ -13,6 +8,11 @@ RUN apt-get update && apt-get install -y \
   wget \
   make \
   curl
+
+ARG LIBPOSTAL_VERSION=v1.1-alpha
+
+ENV LIBPOSTAL_DIR=/opt/libpostal
+ENV LIBPOSTAL_DATA_DIR=/opt/libpostal_data
 
 RUN wget https://github.com/openvenues/libpostal/archive/$LIBPOSTAL_VERSION.tar.gz
 RUN mkdir -p $LIBPOSTAL_DIR
