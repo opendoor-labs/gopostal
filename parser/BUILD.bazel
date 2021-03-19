@@ -23,21 +23,8 @@ go_library(
         "//conditions:default": [],
     }),
     cgo = True,
-    clinkopts = select({
-        "@io_bazel_rules_go//go/platform:android": [
-            "build/linux/libpostal.a",
-        ],
-        "@io_bazel_rules_go//go/platform:darwin": [
-            "build/darwin/libpostal.a",
-        ],
-        "@io_bazel_rules_go//go/platform:ios": [
-            "build/darwin/libpostal.a",
-        ],
-        "@io_bazel_rules_go//go/platform:linux": [
-            "build/linux/libpostal.a",
-        ],
-        "//conditions:default": [],
-    }),
+    # keep
+    clinkopts = None,
     data = ["@libpostal_data_files//:data_files"],
     importpath = "github.com/opendoor-labs/gopostal/parser",
     visibility = ["//visibility:public"],
