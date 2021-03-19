@@ -1,7 +1,5 @@
 # gopostal
 
-[![Build Status](https://travis-ci.org/openvenues/gopostal.svg?branch=master)](https://travis-ci.org/openvenues/gopostal)
-
 Go/cgo interface to [libpostal](https://github.com/openvenues/libpostal), a C library for fast international street address parsing and normalization.
 
 ## Usage
@@ -13,7 +11,7 @@ package main
 
 import (
     "fmt"
-    expand "github.com/openvenues/gopostal/expand"
+    expand "github.com/opendoor-labs/gopostal/expand"
 )
 
 func main() {
@@ -32,7 +30,7 @@ package main
 
 import (
     "fmt"
-    parser "github.com/openvenues/gopostal/parser"
+    parser "github.com/opendoor-labs/gopostal/parser"
 )
 
 func main() {
@@ -63,7 +61,7 @@ sudo brew install curl autoconf automake libtool pkg-config
 **Installing libpostal**
 
 ```
-git clone https://github.com/openvenues/libpostal
+git clone https://github.com/opendoor-labs/libpostal
 cd libpostal
 ./bootstrap.sh
 ./configure --datadir=[...some dir with a few GB of space...]
@@ -79,16 +77,16 @@ sudo ldconfig
 For expansions:
 
 ```
-go get github.com/openvenues/gopostal/expand
+go get github.com/opendoor-labs/gopostal/expand
 ```
 
 For parsing:
 ```
-go get github.com/openvenues/gopostal/parser
+go get github.com/opendoor-labs/gopostal/parser
 ```
 
 ## Tests
 
 ```
-go test github.com/openvenues/gopostal/...
+go test github.com/opendoor-labs/gopostal/...
 ```

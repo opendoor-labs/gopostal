@@ -39,7 +39,7 @@ go_library(
         "//conditions:default": [],
     }),
     data = ["@libpostal_data_files//:data_files"],
-    importpath = "github.com/openvenues/gopostal/expand",
+    importpath = "github.com/opendoor-labs/gopostal/expand",
     visibility = ["//visibility:public"],
     deps = ["@io_bazel_rules_go//go/tools/bazel:go_default_library"],
 )
