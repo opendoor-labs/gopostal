@@ -4,24 +4,37 @@ go_library(
     name = "parser",
     srcs = [
         "build_darwin.go",
+        "build_linux.go",
         "parser.go",
     ],
     cdeps = select({
+        "@io_bazel_rules_go//go/platform:android": [
+            "//build/linux:libpostal",
+        ],
         "@io_bazel_rules_go//go/platform:darwin": [
             "//build/darwin:libpostal",
         ],
         "@io_bazel_rules_go//go/platform:ios": [
             "//build/darwin:libpostal",
+        ],
+        "@io_bazel_rules_go//go/platform:linux": [
+            "//build/linux:libpostal",
         ],
         "//conditions:default": [],
     }),
     cgo = True,
     clinkopts = select({
+        "@io_bazel_rules_go//go/platform:android": [
+            "build/linux/libpostal.a",
+        ],
         "@io_bazel_rules_go//go/platform:darwin": [
             "build/darwin/libpostal.a",
         ],
         "@io_bazel_rules_go//go/platform:ios": [
             "build/darwin/libpostal.a",
+        ],
+        "@io_bazel_rules_go//go/platform:linux": [
+            "build/linux/libpostal.a",
         ],
         "//conditions:default": [],
     }),
