@@ -8,15 +8,29 @@ import "C"
 
 import (
 	"log"
+	"os"
 	"sync"
 	"unicode/utf8"
 	"unsafe"
+
+	"github.com/bazelbuild/rules_go/go/tools/bazel"
 )
 
 var mu sync.Mutex
 
+func getDataDir() string {
+	if dir := os.Getenv("LIBPOSTAL_DATA_DIR"); dir != "" {
+		return dir
+	}
+	path, err := bazel.Runfile("external/libpostal_data_files")
+	if err != nil {
+		log.Fatal("Could not find libpostal data dir")
+	}
+	return path
+}
+
 func init() {
-	dataDir := C.CString("/usr/local/share/libpostal")
+	dataDir := C.CString(getDataDir())
 
 	if !bool(C.libpostal_setup_datadir(dataDir)) || !bool(C.libpostal_setup_parser_datadir(dataDir)) {
 		log.Fatal("Could not load libpostal")

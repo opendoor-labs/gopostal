@@ -28,3 +28,7 @@ go_rules_dependencies()
 go_register_toolchains(go_version = "1.15.4")
 
 gazelle_dependencies()
+
+load("//:repositories.bzl", "libpostal_data_files")
+
+libpostal_data_files()
