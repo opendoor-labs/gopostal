@@ -1,6 +1,0 @@
-cc_import(
-    name = "libpostal",
-    hdrs = ["libpostal.h"],
-    static_library = "libpostal.a",
-    visibility = ["//visibility:public"],
-)

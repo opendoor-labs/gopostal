@@ -1,4 +1,4 @@
 package postal
 
-// #cgo LDFLAGS: build/darwin/libpostal.a
+// #cgo LDFLAGS: vendor/libpostal_darwin.a
 import "C"

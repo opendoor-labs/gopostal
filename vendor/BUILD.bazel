@@ -1,0 +1,13 @@
+cc_import(
+    name = "libpostal_darwin",
+    hdrs = ["libpostal.h"],
+    static_library = "libpostal_darwin.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libpostal_linux",
+    hdrs = ["libpostal.h"],
+    static_library = "libpostal_linux.a",
+    visibility = ["//visibility:public"],
+)

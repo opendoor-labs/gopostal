@@ -1,4 +1,4 @@
 package postal
 
-// #cgo LDFLAGS: build/linux/libpostal.a
+// #cgo LDFLAGS: vendor/libpostal_linux.a
 import "C"

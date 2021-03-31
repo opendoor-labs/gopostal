@@ -1,7 +1,7 @@
 package postal
 
 /*
-#include "build/darwin/libpostal.h"
+#include "vendor/libpostal.h"
 #include <stdlib.h>
 */
 import "C"

@@ -20,9 +20,12 @@ make
 sudo make install
 
 echo "Moving compiled files"
-mkdir -p darwin
-cp /usr/local/lib/libpostal.a darwin/libpostal.a
-cp /usr/local/include/libpostal/libpostal.h darwin/libpostal.h
+cp /usr/local/lib/libpostal.a libpostal_darwin.a
+# We are not using the header file from darwin. We are only using the header
+# file from linux as it contains less symbols (we don't need to use the language
+# classifier).
+
+# TODO: Clean up installed files.
 rm -rf libpostal
 
 echo "Successfully installed libpostal"

@@ -9,16 +9,16 @@ go_library(
     ],
     cdeps = select({
         "@io_bazel_rules_go//go/platform:android": [
-            "//build/linux:libpostal",
+            "//vendor:libpostal_linux",
         ],
         "@io_bazel_rules_go//go/platform:darwin": [
-            "//build/darwin:libpostal",
+            "//vendor:libpostal_darwin",
         ],
         "@io_bazel_rules_go//go/platform:ios": [
-            "//build/darwin:libpostal",
+            "//vendor:libpostal_darwin",
         ],
         "@io_bazel_rules_go//go/platform:linux": [
-            "//build/linux:libpostal",
+            "//vendor:libpostal_linux",
         ],
         "//conditions:default": [],
     }),
