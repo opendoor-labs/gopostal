@@ -24,7 +24,9 @@ go_library(
     }),
     cgo = True,
     # keep
-    clinkopts = None,
+    clinkopts = [],
+    # keep
+    copts = [],
     data = ["@libpostal_data_files//:data_files"],
     importpath = "github.com/opendoor-labs/gopostal/parser",
     visibility = ["//visibility:public"],
