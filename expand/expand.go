@@ -24,7 +24,7 @@ func getDataDir() string {
 	}
 	path, err := bazel.Runfile("external/libpostal_data_files")
 	if err != nil {
-		log.Fatal("Could not find libpostal data dir")
+		log.Fatal("Could not find libpostal data dir: ", err.String())
 	}
 	return path
 }
