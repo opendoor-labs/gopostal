@@ -9,7 +9,6 @@ brew install curl autoconf automake libtool pkg-config
 
 # Libpostal c package
 echo "Cloning libpostal repo from github"
-rm -rf libpostal
 mkdir libpostal
 git clone https://github.com/openvenues/libpostal libpostal
 
@@ -18,6 +17,7 @@ cd libpostal
 git checkout v1.0.0
 ./bootstrap.sh
 ./configure
+# Note: on M1 I had to use `arch -x64_86 make` and I had to patch the checkout with some additional includes
 make
 sudo make install
 
