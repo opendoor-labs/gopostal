@@ -9,11 +9,13 @@ brew install curl autoconf automake libtool pkg-config
 
 # Libpostal c package
 echo "Cloning libpostal repo from github"
+rm -rf libpostal
 mkdir libpostal
 git clone https://github.com/openvenues/libpostal libpostal
 
 echo "Compiling package"
 cd libpostal
+git checkout v1.0.0
 ./bootstrap.sh
 ./configure
 make
