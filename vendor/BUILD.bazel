@@ -13,8 +13,15 @@ cc_import(
 )
 
 cc_import(
-    name = "libpostal_linux",
+    name = "libpostal_linux_amd64",
     hdrs = ["libpostal.h"],
-    static_library = "libpostal_linux.a",
+    static_library = "libpostal_linux_amd64.a",
+    visibility = ["//visibility:public"],
+)
+
+cc_import(
+    name = "libpostal_linux_arm64",
+    hdrs = ["libpostal.h"],
+    static_library = "libpostal_linux_arm64.a",
     visibility = ["//visibility:public"],
 )

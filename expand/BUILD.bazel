@@ -17,8 +17,11 @@ go_library(
         "@io_bazel_rules_go//go/platform:ios": [
             "//vendor:libpostal_darwin",
         ],
-        "@io_bazel_rules_go//go/platform:linux": [
-            "//vendor:libpostal_linux",
+        "@io_bazel_rules_go//go/platform:linux_amd64": [
+            "//vendor:libpostal_linux_amd64",
+        ],
+        "@io_bazel_rules_go//go/platform:linux_arm64": [
+            "//vendor:libpostal_linux_arm64",
         ],
         "//conditions:default": [],
     }),
