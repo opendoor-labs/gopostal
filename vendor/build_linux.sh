@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# To build the static libpostal library for Linux, we use a Docker container.
+# You can use a MacBook with Apple Silicon to build the library for linux/arm64,
+# and RDI Ubuntu instances to build the library for linux/amd64.
 if [ "$(uname -m)" = "arm64" ]; then ARCH="arm64"; else ARCH="amd64"; fi
 echo "Building libpostal for linux/$ARCH platform"
 
