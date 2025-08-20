@@ -22,6 +22,7 @@ WORKDIR $LIBPOSTAL_DIR
 RUN ls
 RUN ./bootstrap.sh
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
+      # For ARM64, disable SSE2 optimizations since it uses native NEON instructions instead of SSE.
       ./configure --datadir=$LIBPOSTAL_DATA_DIR --disable-dependency-tracking --disable-sse2; \
     else \
       ./configure --datadir=$LIBPOSTAL_DATA_DIR --disable-dependency-tracking; \
