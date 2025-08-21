@@ -11,8 +11,11 @@ go_library(
         "@io_bazel_rules_go//go/platform:android": [
             "//vendor:libpostal_linux",
         ],
-        "@io_bazel_rules_go//go/platform:darwin": [
+        "@io_bazel_rules_go//go/platform:darwin_amd64": [
             "//vendor:libpostal_darwin",
+        ],
+        "@io_bazel_rules_go//go/platform:darwin_arm64": [
+            "//vendor:libpostal_darwin_aarch64",
         ],
         "@io_bazel_rules_go//go/platform:ios": [
             "//vendor:libpostal_darwin",
@@ -30,7 +33,7 @@ go_library(
     data = ["@libpostal_data_files//:data_files"],
     importpath = "github.com/opendoor-labs/gopostal/parser",
     visibility = ["//visibility:public"],
-    deps = ["@io_bazel_rules_go//go/tools/bazel:go_default_library"],
+    deps = ["@io_bazel_rules_go//go/tools/bazel"],
 )
 
 go_test(

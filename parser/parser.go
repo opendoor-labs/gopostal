@@ -22,7 +22,7 @@ func getDataDir() string {
 	if dir := os.Getenv("LIBPOSTAL_DATA_DIR"); dir != "" {
 		return dir
 	}
-	path, err := bazel.Runfile("external/libpostal_data_files")
+	path, err := bazel.Runfile("external/com_github_opendoor-labs_gopostal~~non_module_dependencies~libpostal_data_files")
 	if err != nil {
 		log.Fatal("Could not find libpostal data dir")
 	}

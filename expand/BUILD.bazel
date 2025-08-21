@@ -30,7 +30,7 @@ go_library(
     data = ["@libpostal_data_files//:data_files"],
     importpath = "github.com/opendoor-labs/gopostal/expand",
     visibility = ["//visibility:public"],
-    deps = ["@io_bazel_rules_go//go/tools/bazel:go_default_library"],
+    deps = ["@io_bazel_rules_go//go/tools/bazel"],
 )
 
 go_test(
