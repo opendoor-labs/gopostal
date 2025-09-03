@@ -25,3 +25,22 @@ cc_import(
     static_library = "libpostal_linux_arm64.a",
     visibility = ["//visibility:public"],
 )
+
+# Aliases for platform-agnostic references
+alias(
+    name = "libpostal_linux",
+    actual = select({
+        "@platforms//cpu:x86_64": ":libpostal_linux_amd64",
+        "@platforms//cpu:aarch64": ":libpostal_linux_arm64",
+    }),
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "libpostal_darwin_generic",
+    actual = select({
+        "@platforms//cpu:x86_64": ":libpostal_darwin",
+        "@platforms//cpu:aarch64": ":libpostal_darwin_aarch64",
+    }),
+    visibility = ["//visibility:public"],
+)
